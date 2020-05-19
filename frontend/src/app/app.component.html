@@ -1,0 +1,38 @@
+<div class="containerAdmin">
+  <mat-toolbar color="primary" class="toolbarAdmin" *ngIf="isLogged">
+    <button class="menuButton" mat-icon-button color="dark" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img routerLink="/" src="../assets/logo.png" alt="logo Nadir Figueiredo" class="logoNadir">
+    <button mat-icon-button color="dark" aria-label="Logout">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container class="containerSideNav" [ngClass]="{'clear-margin': !isLogged}">
+    <mat-sidenav #sidenav mode="over">
+      <mat-nav-list>
+        <p mat-subheader>Menu</p>
+        <a mat-list-item (click)="sidenav.toggle()" routerLink="/users">
+          <mat-icon>account_circle</mat-icon>
+          Usuários
+        </a>
+        <a mat-list-item (click)="sidenav.toggle()" routerLink="/machine">
+          <mat-icon>account_balance_wallet</mat-icon>
+          Máquinas
+        </a>
+        <a mat-list-item (click)="sidenav.toggle()" routerLink="/bug">
+          <mat-icon>bug_report</mat-icon>
+          Defeitos
+        </a>
+        <a mat-list-item (click)="sidenav.toggle()" routerLink="/inspection">
+          <mat-icon>assignment</mat-icon>
+          Inspeções
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <ngx-spinner></ngx-spinner>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="div-title">
+        <h1 class="title">
+            <mat-icon class="icon-title">account_circle</mat-icon> Novo Usuário
+        </h1>
+    </div>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome completo</mat-label>
+        <input matInput required [(ngModel)]="user.name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuário</mat-label>
+        <input matInput required [(ngModel)]="user.identity">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Cargo</mat-label>
+        <input matInput required [(ngModel)]="user.role">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput required [(ngModel)]="user.password" type="password">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirmação de senha</mat-label>
+        <input matInput required [(ngModel)]="user.confirmPassword" type="password">
+    </mat-form-field>
+
+    <div class="toolbar-form">
+        <button mat-raised-button routerLink="/users" class="cancelButton">Cancelar</button>
+        <button mat-raised-button class="button" (click)="save()">Salvar</button>
+    </div>
+</div>

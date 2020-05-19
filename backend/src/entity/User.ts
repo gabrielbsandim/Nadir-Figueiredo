@@ -1,0 +1,20 @@
+import { Entity, Column } from "typeorm";
+import { BaseEntity } from './BaseEntity';
+
+@Entity()
+export class User extends BaseEntity {
+    @Column({ type: 'varchar', length: 100 })
+    name: string;
+
+    @Column({ type: 'varchar', length: 100 })
+    identity: string;
+
+    @Column({ type: 'varchar', length: 100 })
+    role: string;
+
+    @Column({ default: false })
+    isRoot: boolean;
+
+    @Column({ type: 'varchar', length: 100 })
+    password: string;
+}

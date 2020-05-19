@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="div-title">
+        <h1 class="title">
+            <mat-icon class="icon-title">bug_report</mat-icon> Novo defeito
+        </h1>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descrição do defeito</mat-label>
+        <input matInput required [(ngModel)]="bug.description">
+    </mat-form-field>
+
+
+    <div class="toolbar-form">
+        <button mat-raised-button routerLink="/bug" class="cancelButton">Cancelar</button>
+        <button mat-raised-button class="button" (click)="save()">Salvar</button>
+    </div>
+</div>

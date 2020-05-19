@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="div-title">
+        <h1 class="title">
+            <mat-icon class="icon-title">assignment</mat-icon> Nova inspeção
+        </h1>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Inspetor</mat-label>
+        <mat-select [(ngModel)]="inspection.user.uid">
+            <mat-option *ngFor="let user of users" [value]="user.uid">
+                {{ user.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Artigo</mat-label>
+        <input matInput required [(ngModel)]="inspection.article">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Etiqueta</mat-label>
+        <input matInput required [(ngModel)]="inspection.tag">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Quantidades de peças por palete</mat-label>
+        <input matInput required [(ngModel)]="inspection.palconstLength">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Quantidade de amostras</mat-label>
+        <input matInput required [(ngModel)]="inspection.amountSamples">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Quantidade de peças</mat-label>
+        <input matInput required [(ngModel)]="inspection.amountOfParts">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Status</mat-label>
+        <input matInput required [(ngModel)]="inspection.status">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Máquina</mat-label>
+        <mat-select [(ngModel)]="inspection.machine.uid">
+            <mat-option *ngFor="let machine of machines" [value]="machine.uid">
+                {{ machine.nameMachine }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Defeitos</mat-label>
+        <mat-select [(ngModel)]="inspection.bug.uid">
+            <mat-option *ngFor="let bug of bugs" [value]="bug.uid">
+                {{ bug.description }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="toolbar-form">
+        <button mat-raised-button routerLink="/inspection" class="cancelButton">Cancelar</button>
+        <button mat-raised-button class="button" (click)="save()">Salvar</button>
+    </div>
+</div>

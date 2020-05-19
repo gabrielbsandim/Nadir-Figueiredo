@@ -1,0 +1,14 @@
+<div class="container-login">
+    <mat-card>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Usuário" [(ngModel)]="form.identity" />
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Senha" type="password" [(ngModel)]="form.password" />
+            </mat-form-field>
+            <button mat-raised-button (click)="login()" class="full-width button">Entrar</button>
+        </mat-card-content>
+    </mat-card>
+</div>

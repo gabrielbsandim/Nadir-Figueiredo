@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="div-title">
+        <h1 class="title">
+            <mat-icon class="icon-title">account_balance_wallet</mat-icon> Nova máquina
+        </h1>
+    </div>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome da máquina</mat-label>
+        <input matInput required [(ngModel)]="machine.nameMachine">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Velocidade da máquina</mat-label>
+        <input matInput required [(ngModel)]="machine.machineVelocity">
+    </mat-form-field>
+
+    <div class="toolbar-form">
+        <button mat-raised-button routerLink="/machine" class="cancelButton">Cancelar</button>
+        <button mat-raised-button class="button" (click)="save()">Salvar</button>
+    </div>
+</div>

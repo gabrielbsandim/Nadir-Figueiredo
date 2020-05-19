@@ -1,0 +1,58 @@
+.containerAdmin {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.toolbarAdmin {
+  background-color: #ccc;
+  color: #003f7b;
+  position: fixed;
+  z-index: 2;
+  justify-content: space-between;
+}
+
+.logoNadir {
+  max-width: 200px;
+  max-height: 100px;
+  cursor: pointer;
+}
+
+.containerSideNav {
+  flex: 1;
+  margin-top: 58px;
+  margin-bottom: 20px;
+}
+
+.clear-margin {
+  margin-top: 0px;
+}
+
+mat-sidenav mat-nav-list {
+  padding-top: 20px;
+  min-width: 230px;
+  overflow: hidden;
+
+  & .mat-list-item {
+    padding-left: 20px;
+    background-color: #fff;
+    color: #003f7b;
+    font-weight: 500;
+    transition: color 950ms;
+    transition: background-color 800ms;
+  }
+
+  .mat-list-item:hover {
+    background-color: #003f7b;
+    color: #fff;
+  }
+
+  .mat-subheader {
+    margin-left: 0px;
+  }
+
+  mat-icon {
+    margin-right: 10px;
+  }
+}
