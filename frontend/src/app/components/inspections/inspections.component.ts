@@ -16,7 +16,7 @@ import { Constants } from 'src/app/shared/constants';
 })
 
 export class InspectionsComponent implements OnInit {
-  columns: string[] = ['id', 'userName', 'machineName', 'date', 'status'];
+  columns: string[] = ['id', 'userName', 'machineName', 'date', 'statusPalconst', 'id'];
   dataSource: MatTableDataSource<IInspections>;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -4,6 +4,6 @@ export interface IInspections {
     machine: string;
     bug: string;
     createAt: Date;
-    status: string;
+    statusPalconst: string;
     identity: string;
 }

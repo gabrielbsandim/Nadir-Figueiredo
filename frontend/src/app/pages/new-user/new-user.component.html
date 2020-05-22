@@ -19,12 +19,12 @@
         <input matInput required [(ngModel)]="user.role">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field appearance="outline" class="full-width" *ngIf="!user.uid">
         <mat-label>Senha</mat-label>
         <input matInput required [(ngModel)]="user.password" type="password">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field appearance="outline" class="full-width" *ngIf="!user.uid">
         <mat-label>Confirmação de senha</mat-label>
         <input matInput required [(ngModel)]="user.confirmPassword" type="password">
     </mat-form-field>

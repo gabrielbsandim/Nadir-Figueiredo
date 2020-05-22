@@ -24,7 +24,7 @@ export class InspectionController extends BaseController<Inspection> {
         super.isTrue(isNaN(_inspection.amountSamples), 'Deve ser um número');
         super.isTrue(_inspection.amountSamples <= 0, 'Deve ser maior que 0');
 
-        super.isRequired(_inspection.status, 'Informe se a máquina está liberada');
+        super.isRequired(_inspection.statusPalconst, 'Informe se a máquina está liberada');
 
         super.isRequired(_inspection.amountOfParts, 'Informe a quantidade de peças com defeito');
         super.isTrue(isNaN(_inspection.amountOfParts), 'Deve ser um número');

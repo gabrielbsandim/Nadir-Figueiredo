@@ -18,8 +18,7 @@ export abstract class BaseController<T> extends BaseNotification {
     }
 
     public checkPermission(request: Request) {
-        // return (this._onlyRootController && !request.isRoot);
-        return false;
+        return (this._onlyRootController && !request.isRoot);
     }
 
     async all(request: Request) {
@@ -49,9 +48,10 @@ export abstract class BaseController<T> extends BaseNotification {
                 Object.assign(_modelInDB, model);
             }
         }
-
-        if (this.valid())
+        
+        if (this.valid()) {
             return await this._repository.save(model);
+        }
         else
             return {
                 status: 400,

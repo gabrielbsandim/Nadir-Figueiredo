@@ -8,7 +8,7 @@ export class InspectionModel {
     machine: MachinesModel;
     bug: BugModel;
     createAt: Date;
-    status: string;
+    statusPalconst: string;
     article: string;
     tag: string;
     palconstLength: number;

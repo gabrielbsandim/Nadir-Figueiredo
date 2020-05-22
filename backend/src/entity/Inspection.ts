@@ -9,14 +9,11 @@ export class Inspection {
     @PrimaryGeneratedColumn()
     id: string;
 
-    @Column()
-    identity: string;
-
     @Column({ type: 'varchar', length: 100 })
     article: string;
 
     @Column({ type: 'varchar', length: 100 })
-    tag: string;
+    tag: string; 
 
     @Column()
     palconstLength: number;
@@ -24,8 +21,8 @@ export class Inspection {
     @Column()
     amountSamples: number;
     
-    @Column({ default: true})
-    status: string;
+    @Column()
+    statusPalconst: string;
 
     @ManyToOne( () => User, { eager: true })
     user: User;
