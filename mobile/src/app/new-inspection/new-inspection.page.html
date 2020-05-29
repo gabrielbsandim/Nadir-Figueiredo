@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <div class="toolbar-inspection">
+      <ion-icon name="home-outline" routerLink="/home"></ion-icon>
+      <ion-title>Nova inspeção</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form class="ion-padding-top">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Inspetor <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-select okText="Ok" cancelText="Cancelar" [(ngModel)]="inspection.user.uid" [ngModelOptions]="{standalone: true}">
+          <ion-select-option *ngFor="let user of users" [value]="user.uid">{{ user.name }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Artigo <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" [(ngModel)]="inspection.article" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Etiqueta <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" [(ngModel)]="inspection.tag" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Quantidade de peças por palete <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="number" [(ngModel)]="inspection.palconstLength" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Quantidade de amostras <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="number" [(ngModel)]="inspection.amountSamples" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Quantidade de peças <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="number" [(ngModel)]="inspection.amountOfParts" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Status <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" [(ngModel)]="inspection.statusPalconst" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Máquina <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-select required okText="Ok" cancelText="Cancelar" [(ngModel)]="inspection.machine.uid" [ngModelOptions]="{standalone: true}">
+          <ion-select-option *ngFor="let machine of machines" [value]="machine.uid">{{ machine.nameMachine }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Defeito <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-select required multiple="true" okText="Ok" cancelText="Cancelar" [(ngModel)]="inspection.bug.uid" [ngModelOptions]="{standalone: true}">
+          <ion-select-option *ngFor="let bug of bugs" [value]="bug.uid" >{{ bug.description }}</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-margin-bottom" color="success" (click)="save()">Salvar
+      </ion-button>
+      <ion-button expand="block" color="light" routerLink="/home">Cancelar</ion-button>
+    </div>
+  </form>
+</ion-content>

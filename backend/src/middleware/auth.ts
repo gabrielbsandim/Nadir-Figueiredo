@@ -36,7 +36,7 @@ export default async (req: Request, res: Response, next: Function) => {
                 
                 next();
             } catch (error) {
-                res.statud(401).send({ message: 'Token inválido' });
+                res.status(401).send({ message: 'Token inválido' });
             }
         } else {
             res.status(401).send({ message: 'Para acessar esse recurso, você precisa estar autenticado' });

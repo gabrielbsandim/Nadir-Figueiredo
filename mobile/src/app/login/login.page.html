@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-login">
+      <ion-img src="../../assets/logo.png" class="logoNadir" alt="logo"></ion-img>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 color="primary">Login</h1>
+  <form class="ion-padding-top">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Usuário <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" [(ngModel)]="form.identity" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Senha <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="password" [(ngModel)]="form.password" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-margin-bottom" color="primary" (click)="login()">Entrar</ion-button>
+    </div>
+  </form>
+</ion-content>

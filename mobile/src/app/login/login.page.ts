@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { UsersService } from 'src/service/users.service';
 import { Router } from '@angular/router';
-
-import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginPage implements OnInit {
 
   form: any = {};
 
   constructor(
     private usersService: UsersService,
-    private matSnack: MatSnackBar,
     private router: Router
   ) { }
 
@@ -32,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.usersService.configureLogin(result);
       this.router.navigateByUrl('/home');
     } else {
-      this.matSnack.open('Usuário ou senha inválidos', undefined, { duration: 2000 })
+      // this.matSnack.open('Usuário ou senha inválidos', undefined, { duration: 2000 })
     }
   }
 

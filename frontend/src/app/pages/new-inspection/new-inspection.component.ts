@@ -10,6 +10,7 @@ import { BugsService } from 'src/app/services/bugs.service';
 import { UsersModel } from 'src/app/model/UsersModel';
 import { MachinesModel } from 'src/app/model/MachinesModel';
 import { BugModel } from 'src/app/model/BugModel';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-inspection',
@@ -21,6 +22,17 @@ export class NewInspectionComponent implements OnInit {
   users: Array<UsersModel>;
   machines: Array<MachinesModel>;
   bugs: Array<BugModel>;
+
+  userValidation = new FormControl('', [Validators.required]);
+  articleValidation = new FormControl('', [Validators.required]);
+  tagValidation = new FormControl('', [Validators.required]);
+  lengthValidation = new FormControl('', [Validators.required]);
+  amountSamplesValidation = new FormControl('', [Validators.required]);
+  amountOfPartsValidation = new FormControl('', [Validators.required]);
+  statusValidation = new FormControl('', [Validators.required]);
+  machineValidation = new FormControl('', [Validators.required]);
+  bugValidation = new FormControl('', [Validators.required]);
+
 
   constructor(
     private InspectionsSrv: InspectionsService,
@@ -35,6 +47,12 @@ export class NewInspectionComponent implements OnInit {
   ngOnInit() {
     this.bindFKs();
     this.active.params.subscribe(p => this.getId(p.id));
+  }
+
+  getErrorMessage() {
+    if (this.userValidation.hasError('required')) {
+      return 'O campo acima é obrigatório.';
+    }
   }
 
   async bindFKs(): Promise<void> {
@@ -56,6 +74,7 @@ export class NewInspectionComponent implements OnInit {
   }
 
   async save(): Promise<void> {
+    
     const result = await this.InspectionsSrv.post(this.inspection);
     if (result.success) {
       this.matSnack.open("Inspeção salva com sucesso!", undefined, { duration: 3000 });

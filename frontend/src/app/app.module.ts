@@ -31,6 +31,7 @@ import { NewMachineComponent } from './pages/new-machine/new-machine.component';
 import { NewBugComponent } from './pages/new-bug/new-bug.component';
 import { NewInspectionComponent } from './pages/new-inspection/new-inspection.component';
 import { getPaginatorIntl } from './shared/paginator-intl';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { getPaginatorIntl } from './shared/paginator-intl';
   ],
 
   imports: [
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
@@ -66,7 +68,8 @@ import { getPaginatorIntl } from './shared/paginator-intl';
     MatIconModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSelectModule
+    MatSelectModule,
+  
   ],
 
   providers: [{
