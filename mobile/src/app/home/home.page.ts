@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { UsersService } from 'src/service/users.service';
+import { UsersService } from 'src/service/users.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +9,14 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor(
-    // private usersService: UsersService 
+    private usersService: UsersService 
   ) {}
 
 
-  // async logout() {
-  //   // await this.usersService.logout();
-  // }
+  async logout() {
+    console.log('passei3');
+    
+    await this.usersService.logout();
+
+  }
 }

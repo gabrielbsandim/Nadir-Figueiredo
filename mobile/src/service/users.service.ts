@@ -31,13 +31,13 @@ export class UsersService extends BaseService<UsersModel> {
     this.loginSubject.next(this.isStaticLogged);
   }
 
-  // logout() {
-  //   console.log('passei');
+  logout() {
+    console.log('passei');
     
-  //   localStorage.removeItem('AppNadir:token');
-  //   localStorage.removeItem('AppNadir:user');
-  //   this.router.navigateByUrl('/login');
-  // }
+    localStorage.removeItem('AppNadir:token');
+    localStorage.removeItem('AppNadir:user');
+    this.router.navigateByUrl('/login');
+  }
 
   get isLogged(): Observable<boolean> {
     return this.loginSubject.asObservable();

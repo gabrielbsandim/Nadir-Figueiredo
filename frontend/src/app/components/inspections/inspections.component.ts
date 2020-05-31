@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 
 import Swal from 'sweetalert2';
+import { parseISO, format } from 'date-fns';
 
 import { IInspections } from '../../Interfaces/IInspections';
 import { InspectionsService } from '../../services/inspections.service';
@@ -16,7 +17,7 @@ import { Constants } from 'src/app/shared/constants';
 })
 
 export class InspectionsComponent implements OnInit {
-  columns: string[] = ['id', 'userName', 'machineName', 'date', 'statusPalconst', 'id'];
+  columns: string[] = ['id', 'userName', 'machineName', 'date', 'statusPalconst', 'actions'];
   dataSource: MatTableDataSource<IInspections>;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -29,7 +30,9 @@ export class InspectionsComponent implements OnInit {
 
   async bind(): Promise<void> {
     const inspection = await this.inspectionsSrv.GetAll();
-    this.dataSource = new MatTableDataSource(inspection.data);
+    const inspectionFormat = inspection.data.map(m => ( { ...m, createAt: format(parseISO(m.createAt), "dd/MM/yyyy HH:mm:ss")  }));
+
+    this.dataSource = new MatTableDataSource(inspectionFormat);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }

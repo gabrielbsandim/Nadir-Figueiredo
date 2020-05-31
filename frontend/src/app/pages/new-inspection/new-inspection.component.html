@@ -6,7 +6,7 @@
     </div>
 
     <mat-form-field appearance="outline" class="full-width">
-        <mat-error *ngIf="userValidation.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="userValidation.invalid">{{getErrorMessage()}}</mat-error> -->
         <mat-label>Inspetor</mat-label>
         <mat-select required [(ngModel)]="inspection.user.uid" [formControl]="userValidation">
             <mat-option *ngFor="let user of users" [value]="user.uid">
@@ -16,43 +16,43 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-        <mat-error *ngIf="articleValidation.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="articleValidation.invalid">{{getErrorMessage()}}</mat-error> -->
         <mat-label>Artigo</mat-label>
         <input matInput required [(ngModel)]="inspection.article" [formControl]="articleValidation">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-        <mat-error *ngIf="tagValidation.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="tagValidation.invalid">{{getErrorMessage()}}</mat-error> -->
         <mat-label>Etiqueta</mat-label>
         <input matInput required [(ngModel)]="inspection.tag" [formControl]="tagValidation">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-        <mat-error *ngIf="lengthValidation.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="lengthValidation.invalid">{{getErrorMessage()}}</mat-error> -->
         <mat-label>Quantidades de peças por palete</mat-label>
         <input matInput required type="number" [(ngModel)]="inspection.palconstLength" [formControl]="lengthValidation">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-        <mat-error *ngIf="amountSamplesValidation.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="amountSamplesValidation.invalid">{{getErrorMessage()}}</mat-error> -->
         <mat-label>Quantidade de amostras</mat-label>
         <input matInput required type="number" [(ngModel)]="inspection.amountSamples" [formControl]="amountSamplesValidation">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-        <mat-error *ngIf="amountOfPartsValidation.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="amountOfPartsValidation.invalid">{{getErrorMessage()}}</mat-error> -->
         <mat-label>Quantidade de peças</mat-label>
         <input matInput required type="number" [(ngModel)]="inspection.amountOfParts" [formControl]="amountOfPartsValidation">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-        <mat-error *ngIf="statusValidation.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="statusValidation.invalid">{{getErrorMessage()}}</mat-error> -->
         <mat-label>Status</mat-label>
         <input matInput required [(ngModel)]="inspection.statusPalconst" [formControl]="statusValidation">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-        <mat-error *ngIf="machineValidation.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="machineValidation.invalid">{{getErrorMessage()}}</mat-error> -->
         <mat-label>Máquina</mat-label>
         <mat-select required [(ngModel)]="inspection.machine.uid" [formControl]="machineValidation">
             <mat-option *ngFor="let machine of machines" [value]="machine.uid">
@@ -62,10 +62,10 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-        <mat-error *ngIf="bugValidation.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="bugValidation.invalid">{{getErrorMessage()}}</mat-error> -->
         <mat-label>Defeitos</mat-label>
-        <mat-select required [(ngModel)]="inspection.bug.uid" [formControl]="bugValidation">
-            <mat-option *ngFor="let bug of bugs" [value]="bug.uid">
+        <mat-select required [(ngModel)]="inspection.bug" [formControl]="bugValidation">
+            <mat-option *ngFor="let bug of bugs" [value]="bug">
                 {{ bug.description }}
             </mat-option>
         </mat-select>
