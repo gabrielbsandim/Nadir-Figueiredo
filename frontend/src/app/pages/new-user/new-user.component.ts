@@ -24,14 +24,21 @@ export class NewUserComponent implements OnInit {
     this.active.params.subscribe(p => this.getId(p.id));
   }
 
-  async getId(uid: string): Promise<void> {
-    if (uid === 'new') { return; }
-    const result = await this.UsersService.GetById(uid);
+  async getId(id: string): Promise<void> {
+    if (id === 'new') { return; }
+    const result = await this.UsersService.GetById(id);
     this.user = result.data;
   }
 
   async save(): Promise<void> {
-    const result = await this.UsersService.post(this.user);
+    let result: any;
+
+    if (this.user.id) {
+      result = await this.UsersService.put(this.user.id, this.user);
+    } else {
+      result = await this.UsersService.post(this.user);
+    }
+
     if (result.success) {
       this.matSnack.open("Usuário salvo com sucesso!", undefined, { duration: 3000 });
       this.router.navigateByUrl("/users");

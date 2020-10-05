@@ -13,26 +13,26 @@
   </div>
   <div class="div-table mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-      <ng-container matColumnDef="Nome">
+      <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
         <td mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
-      <ng-container matColumnDef="Usuário">
+      <ng-container matColumnDef="username">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Usuário</th>
-        <td mat-cell *matCellDef="let element">{{ element.identity }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.username }}</td>
       </ng-container>
-      <ng-container matColumnDef="Cargo">
+      <ng-container matColumnDef="role">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Cargo</th>
         <td mat-cell *matCellDef="let element">{{ element.role }}</td>
       </ng-container>
-      <ng-container matColumnDef="Admin">
+      <ng-container matColumnDef="isAdmin">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Admin</th>
-        <td mat-cell *matCellDef="let element">{{ element.isRoot }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.isAdmin }}</td>
       </ng-container>
-      <ng-container matColumnDef="uid">
+      <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element" class="td-actions">
-          <button mat-icon-button aria-label="Editar" routerLink="/users/{{ element.uid }}">
+          <button mat-icon-button aria-label="Editar" routerLink="/users/{{ element.id }}">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button aria-label="Editar" (click)="delete(element)">

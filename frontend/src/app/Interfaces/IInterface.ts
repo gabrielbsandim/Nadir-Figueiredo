@@ -1,5 +1,5 @@
 export interface IInterface {
-    uid: string;
-    createAt: Date;
-    updateAt: Date;
+    id: string;
+    created_at: Date;
+    updated_at: Date;
 }

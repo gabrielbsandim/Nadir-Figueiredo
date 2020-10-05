@@ -4,20 +4,16 @@ import { BugModel } from './BugModel';
 
 export class InspectionModel {
     id: string;
-    user: UsersModel;
-    machine: MachinesModel;
-    bug: BugModel;
-    createAt: Date;
+    user_id: string;
+    machine_id: string;
+    bugs: [{
+      id: string
+    }];
+    created_at: Date;
     statusPalconst: string;
     article: string;
     tag: string;
     palconstLength: number;
     amountSamples: number;
-    amountOfParts: number;
-
-    constructor() {
-        this.user = new UsersModel();
-        this.machine = new MachinesModel();
-        this.bug = new BugModel();
-    }
+    amountParts: number;
 }

@@ -10,7 +10,7 @@ import { InspectionModel } from '../model/InspectionModel';
 export class InspectionsService extends BaseService<InspectionModel> {
 
   constructor(public http: HttpService) {
-    super('inspection', http);
+    super('inspections', http);
   }
 
 }

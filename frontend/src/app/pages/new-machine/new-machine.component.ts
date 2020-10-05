@@ -24,14 +24,19 @@ export class NewMachineComponent implements OnInit {
     this.active.params.subscribe(p => this.getId(p.id));
   }
 
-  async getId(uid: string): Promise<void> {
-    if (uid === 'new') { return; }
-    const result = await this.MachinesService.GetById(uid);
+  async getId(id: string): Promise<void> {
+    if (id === 'new') { return; }
+    const result = await this.MachinesService.GetById(id);
     this.machine = result.data;
   }
 
   async save(): Promise<void> {
-    const result = await this.MachinesService.post(this.machine);
+    let result: any;
+    if (this.machine.id) {
+      result = await this.MachinesService.put(this.machine.id, this.machine);
+    } else {
+      result = await this.MachinesService.post(this.machine);
+    }
     if (result.success) {
       this.matSnack.open("Máquina salva com sucesso!", undefined, { duration: 4000 });
       this.router.navigateByUrl("/machine");

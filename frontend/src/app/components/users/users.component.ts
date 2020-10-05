@@ -15,7 +15,7 @@ import { Constants } from 'src/app/shared/constants';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  columns: string[] = ['Nome', 'Usuário', 'Cargo', 'Admin', 'uid'];
+  columns: string[] = ['name', 'username', 'role', 'isAdmin', 'id'];
   dataSource: MatTableDataSource<IUsers>;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -44,7 +44,7 @@ export class UsersComponent implements OnInit {
     const { value } = await Swal.fire(options);
 
     if (value) {
-      const result = await this.userSrv.delete(user.uid);
+      const result = await this.userSrv.delete(user.id);
       if (result.success) {
         this.bind();
       }

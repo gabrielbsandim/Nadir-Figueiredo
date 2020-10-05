@@ -30,7 +30,7 @@ export class InspectionsComponent implements OnInit {
 
   async bind(): Promise<void> {
     const inspection = await this.inspectionsSrv.GetAll();
-    const inspectionFormat = inspection.data.map(m => ( { ...m, createAt: format(parseISO(m.createAt), "dd/MM/yyyy HH:mm:ss")  }));
+    const inspectionFormat = inspection.data.map(m => ( { ...m, created_at: format(parseISO(m.created_at), "dd/MM/yyyy HH:mm:ss")  }));
 
     this.dataSource = new MatTableDataSource(inspectionFormat);
     this.dataSource.sort = this.sort;

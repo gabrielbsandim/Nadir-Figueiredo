@@ -27,8 +27,8 @@ export class HttpService {
     header = header.append('Accept', 'application/json');
 
     const token = localStorage.getItem('AppNadir:token');
-    if (token) {
-      header = header.append('x-token-access', token);
+    if (token) { 
+      header = header.append('Authorization', 'Bearer ' + token);
     }
     return header;
   }

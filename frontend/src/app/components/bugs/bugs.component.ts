@@ -16,9 +16,9 @@ import { Constants } from 'src/app/shared/constants';
 })
 
 export class BugsComponent implements OnInit {
-  columns: string[] = ['Descrição', 'uid'];
+  columns: string[] = ['description', 'id'];
   dataSource: MatTableDataSource<IBugs>;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private bugsSrv: BugsService) { }
@@ -45,7 +45,7 @@ export class BugsComponent implements OnInit {
     const { value } = await Swal.fire(options);
 
     if (value) {
-      const result = await this.bugsSrv.delete(bug.uid);
+      const result = await this.bugsSrv.delete(bug.id);
       if (result.success) {
         this.bind();
       }

@@ -10,7 +10,7 @@ import { BugModel } from '../model/BugModel';
 export class BugsService extends BaseService<BugModel> {
 
   constructor(public http: HttpService) {
-    super('bug', http);
+    super('bugs', http);
   }
 
 }

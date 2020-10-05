@@ -22,11 +22,11 @@
             </ng-container>
             <ng-container matColumnDef="machineName">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Código da máquina</th>
-                <td mat-cell *matCellDef="let element">{{ element.machine.nameMachine }}</td>
+                <td mat-cell *matCellDef="let element">{{ element.machine.name }}</td>
             </ng-container>
             <ng-container matColumnDef="date">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Data</th>
-                <td mat-cell *matCellDef="let element">{{ element.createAt }}</td>
+                <td mat-cell *matCellDef="let element">{{ element.created_at }}</td>
             </ng-container>
             <ng-container matColumnDef="statusPalconst">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>

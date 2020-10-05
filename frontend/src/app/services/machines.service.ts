@@ -10,7 +10,9 @@ import { MachinesModel } from '../model/MachinesModel';
 export class MachinesService extends BaseService<MachinesModel> {
 
   constructor(public http: HttpService) {
-    super('machine', http);
+    super('machines', http);
   }
+
+
 
 }

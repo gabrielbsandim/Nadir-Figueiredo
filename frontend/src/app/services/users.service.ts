@@ -20,7 +20,7 @@ export class UsersService extends BaseService<UsersModel> {
   }
 
   login(identity: string, password: string): Promise<IResultHttp> {
-    return this.http.post(`${environment.url_api}/login`, { identity, password });
+    return this.http.post(`${environment.url_api}/sessions`, { username: identity, password });
   }
 
   configureLogin(o: any): void {

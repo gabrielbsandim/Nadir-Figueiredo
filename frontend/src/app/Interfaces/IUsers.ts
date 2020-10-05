@@ -2,7 +2,7 @@ import { IInterface } from './IInterface';
 
 export interface IUsers extends IInterface {
   name: string;
-  identity: string;
+  username: string;
   role: string;
-  isRoot: boolean;
+  isAdmin: boolean;
 };

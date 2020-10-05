@@ -17,11 +17,14 @@ import { FormControl, Validators } from '@angular/forms';
   templateUrl: './new-inspection.component.html',
   styleUrls: ['./new-inspection.component.scss']
 })
+
 export class NewInspectionComponent implements OnInit {
   inspection: InspectionModel = new InspectionModel;
   users: Array<UsersModel>;
   machines: Array<MachinesModel>;
   bugs: Array<BugModel>;
+  auxBugs = [];
+
 
   userValidation = new FormControl('', [Validators.required]);
   articleValidation = new FormControl('', [Validators.required]);
@@ -43,6 +46,7 @@ export class NewInspectionComponent implements OnInit {
     private router: Router,
     private active: ActivatedRoute
   ) { }
+
 
   ngOnInit() {
     this.bindFKs();
@@ -67,15 +71,34 @@ export class NewInspectionComponent implements OnInit {
     }
   }
 
-  async getId(uid: string): Promise<void> {
-    if (uid === 'new') { return; }
-    const result = await this.InspectionsSrv.GetById(uid);
+  async getId(id: string): Promise<void> {
+    if (id === 'new') { return; }
+    const result = await this.InspectionsSrv.GetById(id);
     this.inspection = result.data as InspectionModel;
+
+    if (this.inspection.bugs)
+      this.auxBugs = this.inspection.bugs.map(bug => {
+        return bug.id
+      });
   }
 
   async save(): Promise<void> {
-    
-    const result = await this.InspectionsSrv.post(this.inspection);
+    this.inspection.bugs = [{ id: '1' }];
+    this.auxBugs.forEach(e => {
+      this.inspection['bugs'].push({
+        id: e
+      });
+    });
+    this.inspection.bugs.splice(0, 1);
+
+    let result: any;
+
+    if (this.inspection.id) {
+      result = await this.InspectionsSrv.put(this.inspection.id, this.inspection);
+    } else {
+      result = await this.InspectionsSrv.post(this.inspection);
+    }
+
     if (result.success) {
       this.matSnack.open("Inspeção salva com sucesso!", undefined, { duration: 3000 });
       this.router.navigateByUrl("/inspection");

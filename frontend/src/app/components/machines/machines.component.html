@@ -15,18 +15,18 @@
   </div>
   <div class="div-table mat-elevation-z8">
     <table mat-table matSort [dataSource]="dataSource">
-      <ng-container matColumnDef="Código da máquina">
+      <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Código da máquina</th>
-        <td mat-cell *matCellDef="let element">{{ element.nameMachine }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
-      <ng-container matColumnDef="Velocidade da máquina">
+      <ng-container matColumnDef="velocity">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Velocidade da máquina</th>
-        <td mat-cell *matCellDef="let element">{{ element.machineVelocity }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.velocity }}</td>
       </ng-container>
-      <ng-container matColumnDef="uid">
+      <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element" class="td-actions">
-          <button mat-icon-button aria-label="Editar" routerLink="/machine/{{ element.uid }}">
+          <button mat-icon-button aria-label="Editar" routerLink="/machine/{{ element.id }}">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button aria-label="Editar" (click)="delete(element)">

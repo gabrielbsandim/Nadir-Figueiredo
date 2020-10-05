@@ -16,9 +16,9 @@ import { Constants } from 'src/app/shared/constants';
 })
 
 export class MachinesComponent implements OnInit {
-  columns: string[] = ['Código da máquina', 'Velocidade da máquina', 'uid'];
+  columns: string[] = ['name', 'velocity', 'id'];
   dataSource: MatTableDataSource<IMachines>;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private machineSrv: MachinesService) { }
@@ -40,12 +40,12 @@ export class MachinesComponent implements OnInit {
 
   async delete(machine: IMachines): Promise<void> {
     const options: any = {
-      ...Constants.confirm_swal, text: `Deseja realmente excluir a máquina ${machine.nameMachine}?`
+      ...Constants.confirm_swal, text: `Deseja realmente excluir a máquina ${machine.name}?`
     };
     const { value } = await Swal.fire(options);
 
     if (value) {
-      const result = await this.machineSrv.delete(machine.uid);
+      const result = await this.machineSrv.delete(machine.id);
       if (result.success) {
         this.bind();
       }

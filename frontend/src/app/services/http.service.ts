@@ -28,7 +28,7 @@ export class HttpService {
 
     const token = localStorage.getItem('AppNadir:token');
     if (token) {
-      header = header.append('x-token-access', token);
+      header = header.append('Authorization', 'Bearer ' + token);
     }
     return header;
   }
@@ -55,6 +55,21 @@ export class HttpService {
       try {
         this.spinner.show();
         const res = await this.http.post(url, model, { headers: header }).toPromise();
+        resolve({ success: true, data: res, error: undefined });
+        this.spinner.hide();
+      } catch (error) {
+        this.spinner.hide();
+        resolve({ success: false, data: {}, error });
+      }
+    });
+  }
+
+  public put(url: string, model: any): Promise<IResultHttp> {
+    const header = this.createHeader();
+    return new Promise(async (resolve) => {
+      try {
+        this.spinner.show();
+        const res = await this.http.put(url, model, { headers: header }).toPromise();
         resolve({ success: true, data: res, error: undefined });
         this.spinner.hide();
       } catch (error) {

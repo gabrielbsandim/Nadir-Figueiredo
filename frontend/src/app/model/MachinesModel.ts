@@ -1,6 +1,6 @@
 import { BaseModel } from './BaseModel';
 
 export class MachinesModel extends BaseModel{
-    nameMachine: string;
-    machineVelocity: string;
+    name: string;
+    velocity: string;
   };
